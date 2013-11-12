@@ -47,6 +47,8 @@ def gen_files_nodes(dir)
         /(\/|^)_/.match(fname) or /_(\/|$)/.match(fname) or
         /index\.html$/.match(fname)
       }
+      .delete_if { |fname| /asciidoc_twbs_backend/.match(fname) }
+      .delete_if { |fname| /bysas/.match(fname) }
       .sort
       .each { |file|
         doc = Nokogiri::HTML(File.open(file)) { |config| config.strict.nonet}
