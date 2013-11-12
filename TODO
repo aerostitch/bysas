@@ -1,4 +1,8 @@
+TODO list for the bysas project
+===============================
+
 * Generate html only if adoc changed date > html date and templates did not change
 * Base the directories, filters and attributes on a configuration file
 * Change the sh file to a rb file
 * Make documentation
+* Add a google analyzer?
