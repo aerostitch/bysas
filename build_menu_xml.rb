@@ -17,6 +17,7 @@ def gen_subfolders_node(parent_dir, parent_node)
     subfolders = Dir.glob('*')
       .delete_if { |fname| /(\/|^)_/.match(fname) or /_(\/|$)/.match(fname) }
       .delete_if { |fname| /asciidoc_twbs_backend/.match(fname) }
+      .delete_if { |fname| /bysas/.match(fname) }
       .select { |filename| File.directory? filename }
       .each { |fold|
         # child = parent_node.add_element 'url';

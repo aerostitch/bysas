@@ -20,6 +20,7 @@ def gen_subfolders_node(parent_path)
     Dir.glob('*')
       .delete_if { |fname| /(\/|^)_/.match(fname) or /_(\/|$)/.match(fname) }
       .delete_if { |fname| /asciidoc_twbs_backend/.match(fname) }
+      .delete_if { |fname| /bysas/.match(fname) }
       .select {|f| File.directory? f}
       .sort
       .each { |fold|
@@ -93,7 +94,7 @@ end
 
 # adds the description to the document if description.inc exists
 def update_index_html_description(fold_path)
-  idx_html = File.open("#{Www_root}/_tools/templates/index.html",'r')
+  idx_html = File.open("#{Www_root}/asciidoc_twbs_backend/templates/index.html",'r')
   doc = Nokogiri::HTML(idx_html) { |config| config.strict.nonet}
   idx_html.close()  # File have to be closed to rewrite data in it
   # Adding description content
@@ -104,7 +105,7 @@ def update_index_html_description(fold_path)
   # but could also contain google analytics code for example
   # It is added to all index.html pages because 
   add_file_content_to_node(doc, '/html/head',
-                           "#{Www_root}/_tools/google_tags.inc")
+                           "#{Www_root}/bysas/google_tags.inc")
   # Writing result to the index.html file
   begin
     outfile = File.open("#{fold_path}/index.html",'w')
@@ -122,6 +123,7 @@ build_index_files(Www_root)
 Dir.glob([Www_root,"#{Www_root}/**/*"])
   .delete_if { |fname| /(\/|^)_/.match(fname) or /_(\/|$)/.match(fname) }
   .delete_if { |fname| /asciidoc_twbs_backend/.match(fname) }
+  .delete_if { |fname| /bysas/.match(fname) }
   .select { |f| File.directory? f }
   .sort
   .each { |fold|
