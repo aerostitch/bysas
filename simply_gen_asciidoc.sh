@@ -4,7 +4,21 @@
 find ../ -name '*.adoc' -and -not -name 'Notes.adoc' -and -not -name \
 'doc_template.adoc' -exec asciidoc \
 --conf-file=../asciidoc_twbs_backend/asciidoc_twbs_backend.conf \
--b html5 {} \;
+-b html5  \
+-a toc \
+-a toclevels=3@ \
+-a doctype=article@ \
+-a data-uri \
+-a ascii-ids \
+-a linkcss \
+-a stylesdir=/asciidoc_twbs_backend/css@ \
+-a scriptsdir=/asciidoc_twbs_backend/js@ \
+-a icons \
+-a numbered \
+-a lang=en@ \
+-a encoding=UTF-8@ \
+-a website=http://aerostitch.github.io@ \
+{} \;
 
 ruby build_index_files.rb 
 ruby build_menu_xml.rb
