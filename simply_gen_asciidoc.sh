@@ -14,6 +14,7 @@ find ../ -name '*.adoc' -and -not -name 'Notes.adoc' -and -not -name \
 -a stylesdir=/asciidoc_twbs_backend/css@ \
 -a scriptsdir=/asciidoc_twbs_backend/js@ \
 -a icons \
+-a iconsdir=/asciidoc_twbs_backend/ico@ \
 -a numbered \
 -a lang=en@ \
 -a encoding=UTF-8@ \
