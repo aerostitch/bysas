@@ -6,19 +6,19 @@ find ../ -name '*.adoc' -and -not -name 'Notes.adoc' -and -not -name \
 --conf-file=../asciidoc_twbs_backend/asciidoc_twbs_backend.conf \
 -b html5  \
 -a toc \
--a toclevels=3@ \
--a doctype=article@ \
+-a toclevels=3 \
+-a doctype=article \
 -a data-uri \
 -a ascii-ids \
 -a linkcss \
--a stylesdir=/asciidoc_twbs_backend/css@ \
--a scriptsdir=/asciidoc_twbs_backend/js@ \
+-a stylesdir=/asciidoc_twbs_backend/css \
+-a scriptsdir=/asciidoc_twbs_backend/js \
 -a icons \
--a iconsdir=/asciidoc_twbs_backend/ico@ \
+-a iconsdir=/asciidoc_twbs_backend/ico \
 -a numbered \
--a lang=en@ \
--a encoding=UTF-8@ \
--a website=http://aerostitch.github.io@ \
+-a lang=en \
+-a encoding=UTF-8 \
+-a website=http://aerostitch.github.io \
 {} \;
 
 ruby build_index_files.rb 
