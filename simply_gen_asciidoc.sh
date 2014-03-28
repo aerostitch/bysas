@@ -22,6 +22,7 @@ find ../ -name '*.adoc' -and -not -name 'Notes.adoc' -and -not -name \
 -a website=http://aerostitch.github.io \
 -a footer-style=none \
 {} \;
+find ../ -name '*.html' -exec dos2unix {} \;
 
 ruby build_index_files.rb 
 ruby build_menu_xml.rb
